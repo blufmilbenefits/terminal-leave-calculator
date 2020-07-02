@@ -29,8 +29,8 @@ Code: Javascript for webpage integration
 Pull in calendar for date calculation
 
 Necessary Inputs from the member:
-What is your situation? (1) I plan to retire (2) I plan to separate (3) I am being involuntarily Separated
-If plan to retire
+What is your situation? (1) I plan to retire (2) I plan to separate (3) I am being honorably involuntarily separated
+(1) If plan to retire
 -- When do you plan to retire? 
 --- Enter date (01/MM/YYYY) *Note for user* Retirement date must be the first day of the month
      [or] 
@@ -38,5 +38,34 @@ If plan to retire
 ---- Code will have to add 20 years and then (if did not enter on the 1st day of the month) round up to the 1st day of the new month after
 -- At the time of retirement, will you be CONUS or OCONUS? (CONUS will add 20 days, OCONUS will add 30 days)
 -- How many days of leave do you plan to have built up?
+--- Enter number of days [xxx Days]
+---- Calculation must include the 2.5 days a month earned while on terminal leave
+[or]
+--- Calculate assuming the standard max for me.
+---- *Note for user but also for calculation* 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)
+---- *Note for user but also for calculation* + 2.5 days per month in new fiscal year while on active AND terminal leave time (this is important since it includes the 2.5 days earned for every month on terminal leave)
+Final Output Message: “With a final retirement date of (01/MM/YYYY), you should start terminal leave on (DD/MM/YYYY). This assumes xx days of PTDY and xxx days of terminal leave, including the leave earned while on terminal leave.”
 
+(2) If plan to separate
+-- When do you plan to separate? 
+--- Enter date (DD/MM/YYYY)
+-- How many days of leave do you plan to have built up?
+--- Enter number of days [xxx Days]
+---- Calculation must include the 2.5 days a month earned while on terminal leave
+[or]
+--- Calculate assuming the standard max for me.
+---- *Note for user but also for calculation* 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)
+---- *Note for user but also for calculation* + 2.5 days per month in new fiscal year while on active AND terminal leave time (this is important since it includes the 2.5 days earned for every month on terminal leave)
+Final Output Message: “With a final separation date of (XX/MM/YYYY), you should start terminal leave on (DD/MM/YYYY). This assumes xxx days of terminal leave, including the leave earned while on terminal leave.”
 
+(3) If being involuntairly separated (Honorable)
+-- When do you plan to separate? 
+--- Enter date (XX/MM/YYYY) 
+-- How many days of leave do you plan to have built up?
+--- Enter number of days [xxx Days]
+[or]
+--- Calculate assuming the standard max for me.
+---- *Note for user but also for calculation* 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep 30th)
+---- *Note for user but also for calculation* + 2.5 days per month in new fiscal year while on active AND terminal leave time (this is important since it includes the 2.5 days earned for every month on terminal leave)
+---- As an involuntary separatee, you can receive up to 30 days of extra leave or 10 days of PTDY for transitional assistance. Do you plan to use either? (Yes, 30 days extra of leave) (Yes, 10 days of PTDY) (No)
+Final Output Message: “With a final separation date of (XX/MM/YYYY), you should start terminal leave on (DD/MM/YYYY). This assumes xx days of PTDY and xxx days of terminal leave, including the leave earned while on terminal leave.”
