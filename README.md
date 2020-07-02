@@ -1,5 +1,6 @@
 # terminal-leave-calculator
 Repository to create military separation/retirement date calculator 
+(Easier to read in RAW format)
 
 Goal: To offer a free javascript-web based “Terminal Leave” calculator hosted on the BLUF Mil Benefits website within the “Separation & Retirement” page. 
 
