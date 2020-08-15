@@ -1,0 +1,205 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+
+<body>
+    <div id=situation>
+        <p class=question>What is your current situation?</p>
+        <div class=button-container>
+            <button id=retire>I plan to retire</button>
+            <button id=seperate>I plan to separate</button>
+            <button id=invSeperate>I am being honorably involuntarily separated</button>
+        </div>
+    </div>
+    <div class="retirement-tab">
+        <div class=three-column-layout>
+            <div class=column-1>
+                <p class=question>When do you plan to retire?</p>
+                <input id=plannedRetireDate type=date>
+                <p class=note>Retirement date must be the first day of the month</p>
+            </div>
+            <div class=column-2>
+                <p class=or>OR</p>
+            </div>
+            <div class=column-3>
+                <p class=question>Calculate 20 years in for me: <br> Enter your enlistment or commissioning date</p>
+                <input id=enlistmentDate type=date>
+            </div>
+        </div>
+        <div class="navigation-container">
+            <button class="home nav-btn">Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class=nav-btn>Next</button>
+        </div>
+    </div>
+    <div class="retirement-tab">
+        <p class=question>At the time of retirement, will you be CONUS or OCONUS?</p>
+        <button id=conus onclick="conus()" class=choice>CONUS</button>
+        <button id=oconus onclick="conus()" class=choice>OCONUS</button><br>
+        <div class="navigation-container">
+            <button onclick="nextPrev(-1)" class=nav-btn>Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class=nav-btn>Next</button>
+        </div>
+    </div>
+    <div class="retirement-tab">
+        <div class=three-column-layout>
+            <div class=column-1>
+                <p class=question>How many days of leave do you plan to have built up?</p>
+                <input class="input leaveInput" placeholder="Enter number of days">
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+            </div>
+            <div class=column-2>
+                <p class=or>OR</p>
+            </div>
+            <div class=column-3>
+                <p class="question extra-margin-right">Calculate how much leave I'll have by my retirement date assuming
+                    today
+                    (<input class=today type=date>) I have <input class="input daysAlreadyEarned"
+                        placeholder="Enter number of days"> days of
+                    leave.
+                </p>
+                <p class=note>includes 60 days for fiscal year previous to retirement date (Fiscal year is Oct 1 – Sep
+                    30th)</p>
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+            </div>
+        </div>
+        <div class="navigation-container">
+            <button onclick="nextPrev(-1)" class=nav-btn>Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class="nav-btn calculate">Calculate</button>
+        </div>
+        <br>
+        <p class=question>Calculate assuming standard max for me (Press Next)</p>
+    </div>
+    <div class="retirement-tab">
+        <p class=calculated-output>Please make sure you completed all parts of the form</p>
+        <img class=logo src="https://i.imgur.com/VJZKtP3.png">
+        <div class="navigation-container">
+            <button onclick="nextPrev(-1)" class="nav-btn reset">Back</button>
+            <button onclick="startOver()" class="nav-btn">Start Over</button>
+        </div>
+    </div>
+    <div class="separation-tab auto-width">
+        <p class=question>When do you plan to seperate?</p>
+        <input id=plannedSeparateDate type=date>
+        <p class="note">Members voluntarily separating do not get PTDY days</p>
+        <div class="navigation-container">
+            <button class="home nav-btn">Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class=nav-btn>Next</button>
+        </div>
+    </div>
+    <div class="separation-tab">
+        <div class=three-column-layout>
+            <div class=column-1>
+                <p class="question margin-left">How many days of leave do you plan to have built up?</p>
+                <input class="input leaveInput" placeholder="Enter number of days">
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>The date of separation is not included as a day of leave</p>
+            </div>
+            <div class=column-2>
+                <p class=or>OR</p>
+            </div>
+            <div class=column-3>
+                <p class="question extra-margin-right">Calculate how much leave I'll have by my separation date assuming
+                    today
+                    (<input class=today type=date>) I have <input class="input daysAlreadyEarned"
+                        placeholder="Enter number of days">days of
+                    leave.
+                </p>
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>Reminder that only 60 days may be carried over per fiscal year which ends Sept 30th every
+                    year.
+                    Starting Oct 1st, you can start adding more on top of the 60 days
+                </p>
+            </div>
+        </div>
+        <div class="navigation-container">
+            <button id=prevBtn onclick="nextPrev(-1)" class=nav-btn>Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class="nav-btn calculate">Calculate</button>
+        </div>
+        <br>
+        <p class=question>Calculate assuming standard max for me (Press Next)</p>
+    </div>
+    <div class="separation-tab">
+        <p class=calculated-output>Please make sure you completed all parts of the form</p>
+        <img class=logo src="https://i.imgur.com/VJZKtP3.png">
+        <div class="navigation-container">
+            <button id=prevBtn onclick="nextPrev(-1)" class="nav-btn reset">Back</button>
+            <button id=prevBtn onclick="startOver()" class="nav-btn">Start Over</button>
+        </div>
+    </div>
+    <div class="involuntary-separation-tab">
+        <p class=question>When do you plan to seperate?</p>
+        <input id=plannedInvSeparateDate type=date>
+        <div class="navigation-container">
+            <button class="home nav-btn">Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class=nav-btn>Next</button>
+        </div>
+    </div>
+    <div class="involuntary-separation-tab">
+        <div class=three-column-layout>
+            <div class=column-1>
+                <p class=question>How many days of leave do you plan to have built up?</p>
+                <input class="input leaveInput" placeholder="Enter number of days">
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>The date of separation is not included as a day of leave</p>
+            </div>
+            <div class=column-2>
+                <p class=or>OR</p>
+            </div>
+            <div class=column-3>
+                <p class="question extra-margin-right">Calculate how much leave I'll have by my separation date assuming
+                    today
+                    (<input class=today type=date>) I have <input class="input daysAlreadyEarned"
+                        placeholder="Enter number of days"> days of
+                    leave.</p>
+                <p class=note>includes the 2.5 days earned for every month on terminal leave</p>
+                <p class=note>Reminder that only 60 days may be carried over per fiscal year which ends Sept 30th every
+                    year.
+                    Starting Oct 1st, the user can start adding more on top of the 60 days
+                <p>
+            </div>
+        </div>
+        <br>
+        <div class="navigation-container">
+            <button id=prevBtn onclick="nextPrev(-1)" class=nav-btn>Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class="nav-btn ">Next</button>
+        </div>
+        <p class=question>Calculate assuming standard max for me (Press Next)</p>
+    </div>
+    <div class="involuntary-separation-tab">
+        <p class=question>As an involuntary separatee, you can receive up to 30 days of extra leave or 10 days of PTDY
+            for
+            transitional assistance. Do you plan to use either?</p>
+        <button id=yes-extraLeave onclick="extraLeave()" class=choice>Yes, extra leave</button>
+        <button id=yes-ptdy onclick="extraLeave()" class=choice>Yes, PTDY</button>
+        <button id=no onclick="extraLeave()" class=choice>No</button><br>
+        <input class="extraLeave input" placeholder="Enter number of days" id=extraLeaveDays><br>
+        <div class="navigation-container">
+            <button id=prevBtn onclick="nextPrev(-1)" class=nav-btn>Back</button>
+            <button id=nextBtn onclick="nextPrev(1)" class="nav-btn calculate">Calculate</button>
+        </div>
+    </div>
+    <div class="involuntary-separation-tab">
+        <p class=calculated-output>Please make sure you completed all parts of the form</p>
+        <img class=logo src="https://i.imgur.com/VJZKtP3.png">
+        <div class="navigation-container">
+            <button id=prevBtn onclick="nextPrev(-1)" class="nav-btn reset">Back</button>
+            <button id=prevBtn onclick="startOver()" class="nav-btn">Start Over</button>
+        </div>
+    </div>
+    <div class="progressContainer">
+        <div class=progress-bar-container>
+            <div id=progressBar class=progressBar>
+                <p id=percentage></p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/retire.js"></script>
+<script src="js/separate.js"></script>
+<script src="js/invSeparate.js"></script>
+<script src="js/index.js"></script>
+
+</html>
